@@ -8,13 +8,14 @@ def create_user_table():
     if conn is not None:
         try:
             cursor = conn.cursor()
-            create_table_query = """
+            create_table_query = '''
             CREATE TABLE IF NOT EXISTS users (
                 id SERIAL PRIMARY KEY,
-                name VARCHAR(100) NOT NULL,
+                name VARCHAR(100) NOT NULL
                 
             );
-            """
+            '''
+            cursor.execute(create_table_query)
             conn.commit()
             print("Table 'users' created successfully.")
         except Exception as e:
@@ -23,4 +24,4 @@ def create_user_table():
             cursor.close()
             conn.close()
 
-create_user_table()
+# create_user_table()
